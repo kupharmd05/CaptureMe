@@ -58,3 +58,7 @@
     text-align: center;
     color: #FFFFFF;
   }
+
+  .login-page {
+    height: 100vh;
+  }
