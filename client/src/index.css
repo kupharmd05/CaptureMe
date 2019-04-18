@@ -6,9 +6,23 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #ffffff;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.jumbotron {
+  background-color: rgb(58, 35, 190);
+  text-decoration: none;
+}
+
+h1 {
+  color: orange;
+}
+
+.login-page {
+  height: 100vh;
 }

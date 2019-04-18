@@ -49,5 +49,12 @@
   }
 
   body {
-    background: #5452b8;
+    background-image: linear-gradient(to bottom, #5452b8, #29FF00);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  h1 {
+    text-align: center;
+    color: #FFFFFF;
   }
