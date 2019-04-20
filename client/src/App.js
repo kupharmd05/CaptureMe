@@ -143,27 +143,27 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div class="capture-form">
           <button onClick={ () => {
           let facingMode = FACING_MODES.ENVIRONMENT;
           let idealResolution = { width: 640, height: 480 };
           this.startCamera(facingMode, idealResolution);
         }}> Start environment facingMode resolution ideal 640 by 480 </button>
-
+        <br/><br/>
         <button onClick={ () => {
           let facingMode = FACING_MODES.USER;
           this.startCamera(facingMode, {});
         }}> Start user facingMode resolution default </button>
-
+        <br/><br/>
         <button onClick={ () => {
           let facingMode = FACING_MODES.USER;
           this.startCameraMaxResolution(facingMode);
         }}> Start user facingMode resolution maximum </button>
-
+        <br/><br/>
         <button onClick={ () => {
           this.takePhoto();
         }}> Take photo </button>
-
+        <br/><br/>
         <button onClick={ () => {
           this.stopCamera();
         }}> Stop </button>
