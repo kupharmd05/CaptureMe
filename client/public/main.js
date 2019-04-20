@@ -52,13 +52,9 @@ navigator.mediaDevices.getUserMedia(constraints)
 
                 document.querySelector("#capture").addEventListener("click", function (event) {                    
                     clearTimeout(timerId);
-                    
-                    var base64Image2 = canvas.toDataURL();
-                    
-                    bcr.recognizeBcr(base64image2, displayResultCallback, displayProgressCallback);
-                    console.log(displayResultCallback);
 
-
+                    
+                    
                     var base64Image = canvas.toDataURL().replace("data:image/png;base64,", "");
                     var imageReady = prepareToSend(base64Image);
                     var key = "AIzaSyBO1-gzEojkiM6BU5uDjeDT4ndpvrFFCtA";
@@ -123,3 +119,5 @@ navigator.mediaDevices.getUserMedia(constraints)
     function printText(text){
         $( "#textOfImage" ).append( `<p>${text}</p>` );
     }
+
+  
