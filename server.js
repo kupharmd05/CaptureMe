@@ -38,20 +38,20 @@ app.post("/user/image", function (req, res) {
     
 });
     // Creates a client
-    const client = new vision.ImageAnnotatorClient({
-      keyFilename: "./client/src/APIkey.json"
-    });
+    // const client = new vision.ImageAnnotatorClient({
+    //   keyFilename: "./client/src/APIkey.json"
+    // });
   
     // Performs label detection on the image file
-    client
-      .textDetection("image.png")
-      .then(results => {
-        console.log(results[0].fullTextAnnotation.text);
+    // client
+    //   .textDetection("image.png")
+    //   .then(results => {
+    //     console.log(results[0].fullTextAnnotation.text);
   
-      })
-      .catch(err => {
-        console.error(err);
-      });
+    //   })
+    //   .catch(err => {
+    //     console.error(err);
+    //   });
   
 
 

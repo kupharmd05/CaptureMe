@@ -62,3 +62,12 @@
   .login-page {
     height: 100vh;
   }
+
+  .button-link {
+    color: white;
+
+  }
+
+  button:hover {
+    background-color: #29DD00
+  }
