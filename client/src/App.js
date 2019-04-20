@@ -81,20 +81,12 @@ class App extends Component {
                   response.json().then(function(data){
                     console.log(data);
                     var text=data.responses[0].fullTextAnnotation.text;
-                    console.log(text);
-                    var newLineText = text.split(" ");
-                    printText(newLineText); // Colorado
-                    // AJAX Request to /api/image./?q=Colorado
+
+                    
+                    var newLineText = text.split("\n");
+                    console.log(newLineText);
+                    printText(text);
                   })
-
-                  
-                  
-
-                  // axios.post("/api/card", function(data) {
-                  //     console.log(data);
-                  //     console.log(text);
-                  // })
-                  // resolve();
            })
                .catch(function( error, response, body ){
                   console.log(error);
@@ -122,7 +114,7 @@ class App extends Component {
   }
 
   function printText(text){
-      document.querySelectorAll('p').append( `<p>${text}</p>` );
+        document.querySelector('.text').append(text + "\n");
   }
 
 
