@@ -122,7 +122,7 @@ class App extends Component {
   }
 
   function printText(text){
-      document.querySelectorAll('p').append( `<p>${text}</p>` );
+      document.querySelector('.text').append( `<p>${text}</p>` );
   }
 
 
@@ -144,7 +144,7 @@ class App extends Component {
   render() {
     return (
       <div className="capture-form">
-        <button onClick={ () => {
+          <button onClick={ () => {
           let facingMode = FACING_MODES.ENVIRONMENT;
           let idealResolution = { width: 270, height: 270 };
           this.startCamera(facingMode, idealResolution);
@@ -160,7 +160,7 @@ class App extends Component {
         <br/><br/>
         <video className="camera"
           ref={this.videoRef}
-          autoPlay= {true}
+          autoPlay = {true}
         />
         <br/><br/>
         <img
