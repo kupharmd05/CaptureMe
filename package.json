@@ -6,6 +6,7 @@
   "dependencies": {
     "@google-cloud/vision": "^0.25.0",
     "axios": "^0.18.0",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
     "jslib-html5-camera-photo": "^3.0.2-beta.0",
     "react": "^16.8.6",

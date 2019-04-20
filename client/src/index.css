@@ -91,6 +91,14 @@ video {
   align-items: center;
 }
 
+.hidden {
+  display: none;
+}
+
+.display {
+  display: block;
+}
+
 /* #add-button{
   align-items: center;
   display: flex;

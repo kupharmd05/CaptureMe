@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import CameraPhoto, { FACING_MODES } from 'jslib-html5-camera-photo';
-import axios from 'axios';
 import './App.css';
 
 class App extends Component {
@@ -62,33 +61,78 @@ class App extends Component {
     this.setState({ dataUri });
     let blob = dataUri
 
-    axios.post("/user/image",{
-      data: blob
-    }).then(function(response){
-      console.log(response)
-    }).catch(function(error){
-      console.log(error)
-    })
+    var base64Image = blob.replace("data:image/png;base64,", "");
+    var imageReady = prepareToSend(base64Image);
+    var key = "AIzaSyBO1-gzEojkiM6BU5uDjeDT4ndpvrFFCtA";
+    sendImage(imageReady, key);
     
-    // function dataURItoBlob(dataUri) {
-    //   let byteString = atob(dataUri.split(',')[1]);
-    //   let mimeString = dataUri.split(',')[0].split(':')[1].split(',')[0];
+    function sendImage(data, key) {
+      // console.log(data);
 
-    //   let ab = new ArrayBuffer(byteString.length);
-    //   let ia = new Uint8Array(ab);
-    //   for (let i = 0; i < byteString.length; i++){
-    //     ia[i] = byteString.charCodeAt(i);
-    //   }
-    //   return new Blob([ab], {type: mimeString})
-    // }
-    // dataURItoBlob()
-    console.log(blob)
+      return new Promise((resolve, reject) => {
+        
+          fetch("https://vision.googleapis.com/v1/images:annotate?key=" + key,{
+             
+              method: 'post',
+              body: data,
+              contentType: 'application/json',
+              dataType: 'json'
+           }).then(function(response){
+                  response.json().then(function(data){
+                    console.log(data);
+                    var text=data.responses[0].fullTextAnnotation.text;
+                    console.log(text);
+                    var newLineText = text.split(" ");
+                    printText(newLineText); // Colorado
+                    // AJAX Request to /api/image./?q=Colorado
+                  })
+
+                  
+                  
+
+                  // axios.post("/api/card", function(data) {
+                  //     console.log(data);
+                  //     console.log(text);
+                  // })
+                  // resolve();
+           })
+               .catch(function( error, response, body ){
+                  console.log(error);
+               })
+      })
+  };
+  
+
+  function prepareToSend(image) {
+      var data = {
+          requests: [
+              {
+                  image: {
+                      content: image
+                  },
+                  features: [
+                      {
+                          type: "DOCUMENT_TEXT_DETECTION"
+                      }
+                  ]
+              }
+          ]
+      }
+      return JSON.stringify(data);
+  }
+
+  function printText(text){
+      document.querySelectorAll('p').append( `<p>${text}</p>` );
+  }
+
+
+    // console.log(blob)
   }
 
   stopCamera () {
     this.cameraPhoto.stopCamera()
       .then(() => {
-        console.log('Camera stoped!');
+        console.log('Camera stopped!');
       })
       .catch((error) => {
         console.log('No camera to stop!:', error);
@@ -132,6 +176,7 @@ class App extends Component {
           alt="imgCamera"
           src={this.state.dataUri}
         />
+        <p className="text" />
       </div>
     );
   }
