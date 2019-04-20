@@ -49,7 +49,7 @@
 }
 
 body {
-  background-image: linear-gradient(to bottom, #5452b8, #29FF00);
+  background-image: linear-gradient(to bottom, #04528E, 60%, #29DD00);
   background-repeat: no-repeat;
   background-size: cover;
 }
