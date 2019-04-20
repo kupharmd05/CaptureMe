@@ -64,6 +64,14 @@ button {
   box-shadow: 5px 5px black;
 }
 
+.hidden {
+  display: none;
+}
+
+.display {
+  display: block;
+}
+
 /* #add-button{
   align-items: center;
   display: flex;
