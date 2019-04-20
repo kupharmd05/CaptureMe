@@ -33,27 +33,6 @@ app.get('/express_backend', (req, res) => {
 // require("./Routes/htmlRoutes")(app);
 
 
-<<<<<<< HEAD
-=======
-    
-});
-    // Creates a client
-    // const client = new vision.ImageAnnotatorClient({
-    //   keyFilename: "./client/src/APIkey.json"
-    // });
-  
-    // Performs label detection on the image file
-    // client
-    //   .textDetection("image.png")
-    //   .then(results => {
-    //     console.log(results[0].fullTextAnnotation.text);
-  
-    //   })
-    //   .catch(err => {
-    //     console.error(err);
-    //   });
-  
->>>>>>> 51748af203ffc55f6e553baa199834640ba6d1b6
 
 
 
