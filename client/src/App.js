@@ -99,8 +99,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <form class="capture-form">
+      <div class="capture-form">
           <button onClick={ () => {
           let facingMode = FACING_MODES.ENVIRONMENT;
           let idealResolution = { width: 640, height: 480 };
@@ -124,7 +123,6 @@ class App extends Component {
         <button onClick={ () => {
           this.stopCamera();
         }}> Stop </button>
-        </form>
 
         <video
           ref={this.videoRef}
