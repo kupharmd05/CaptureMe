@@ -1,36 +1,30 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 8080;
-const fs = require('fs');
-const vision = require('@google-cloud/vision');
-const axios = require('axios');
-const path = require('path');
-const router = express.Router();
+const mongoose = require("mongoose");
+const routes = require("./routes");
 
 
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: false }));
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+// Add routes, both API and view
+app.use(routes);
+
 
 app.use(express.static(__dirname + "/public"));
 
-// router.get('/',function(req,res){
-//   res.sendFile(path.join(__dirname+'/login.html'))
-// })
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/capturemecontactlist");
 
 
+// app.get('/express_backend', (req, res) => {
+//   res.send({ express: 'Express backend is connected to React' })
+// });
 
 
-// app.get("/", function (req, res) {
-//   res.sendFile(__dirname + "/public/login.html");
-// })
-
-
-app.get('/express_backend', (req, res) => {
-  res.send({ express: 'Express backend is connected to React' })
-});
-
-// require("./Routes/htmlRoutes")(app);
 
 
 
