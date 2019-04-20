@@ -52,6 +52,7 @@
     background-image: linear-gradient(to bottom, #04528E, 60%, #29DD00);
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
   }
 
   h1 {
