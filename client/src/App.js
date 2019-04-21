@@ -114,7 +114,9 @@ class App extends Component {
   }
 
   function printText(text){
+
         document.querySelector('.text').append(text + "\n");
+
   }
 
 
