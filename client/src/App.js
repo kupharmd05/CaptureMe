@@ -137,10 +137,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="capture-form">
+      <div className="login-page" style={{height: '100vh'}}>
+        <div role="heading">
+          <h1>Capture</h1>
+        </div>
+        <div className="capture-form">
           <button onClick={ () => {
           let facingMode = FACING_MODES.ENVIRONMENT;
-          let idealResolution = { width: 270, height: 270 };
+          let idealResolution = { width: 640, height: 480 };
           this.startCamera(facingMode, idealResolution);
         }}> Start Camera</button>
         <br/><br/>
@@ -162,6 +166,7 @@ class App extends Component {
           src={this.state.dataUri}
         />
         <p className="text" />
+        </div>
       </div>
     );
   }
