@@ -8,6 +8,7 @@
     "jslib-html5-camera-photo": "^3.0.2-beta.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-dragula": "^1.1.17",
     "react-scripts": "2.1.8"
   },
   "scripts": {
@@ -25,5 +26,4 @@
     "not ie <= 11",
     "not op_mini all"
   ]
-  
 }

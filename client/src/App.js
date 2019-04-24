@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import CameraPhoto, { FACING_MODES } from 'jslib-html5-camera-photo';
+import sendImage from "./utils/googleAPI";
+import Dragula from "react-dragula";
 import './App.css';
 
 class App extends Component {
@@ -8,7 +10,8 @@ class App extends Component {
     this.cameraPhoto = null;
     this.videoRef = React.createRef();
     this.state = {
-      dataUri: ''
+      dataUri: '',
+      labels: ["full name", "phone", "job title", "email", "fax"]
     };
     
   }
@@ -65,34 +68,6 @@ class App extends Component {
     var imageReady = prepareToSend(base64Image);
     var key = "AIzaSyBO1-gzEojkiM6BU5uDjeDT4ndpvrFFCtA";
     sendImage(imageReady, key);
-    
-    function sendImage(data, key) {
-      // console.log(data);
-
-      return new Promise((resolve, reject) => {
-        
-          fetch("https://vision.googleapis.com/v1/images:annotate?key=" + key,{
-             
-              method: 'post',
-              body: data,
-              contentType: 'application/json',
-              dataType: 'json'
-           }).then(function(response){
-                  response.json().then(function(data){
-                    console.log(data);
-                    var text=data.responses[0].fullTextAnnotation.text;
-
-                    
-                    var newLineText = text.split("\n");
-                    console.log(newLineText);
-                    printText(text);
-                  })
-           })
-               .catch(function( error, response, body ){
-                  console.log(error);
-               })
-      })
-  };
   
 
   function prepareToSend(image) {
@@ -113,12 +88,6 @@ class App extends Component {
       return JSON.stringify(data);
   }
 
-  function printText(text){
-
-        document.querySelector('.text').append(text + "\n");
-
-  }
-
 
     // console.log(blob)
   }
@@ -133,42 +102,67 @@ class App extends Component {
       });
   }
 
-
-
   render() {
     return (
-      <div className="login-page" style={{height: '100vh'}}>
-        <div role="heading">
-          <h1>Capture</h1>
-        </div>
-        <div className="capture-form">
+      <div>
+        <div className="login-page" style={{height: '100vh'}}>
+
+          <div role="heading">
+            <h1>Capture</h1>
+          </div>
+          <div className="capture-form">
+            <button onClick={ () => {
+            let facingMode = FACING_MODES.ENVIRONMENT;
+            let idealResolution = { width: 640, height: 480 };
+            this.startCamera(facingMode, idealResolution);
+          }}> Start Camera</button>
+          <br/><br/>
           <button onClick={ () => {
-          let facingMode = FACING_MODES.ENVIRONMENT;
-          let idealResolution = { width: 640, height: 480 };
-          this.startCamera(facingMode, idealResolution);
-        }}> Start Camera</button>
-        <br/><br/>
-        <button onClick={ () => {
-          this.takePhoto();
-        }}>Take photo</button>
-        <br/><br/>
-        <button onClick={ () => {
-          this.stopCamera();
-        }}>Close Camera</button>
-        <br/><br/>
-        <video className="camera"
-          ref={this.videoRef}
-          autoPlay = {true}
-        />
-        <br/><br/>
-        <img
-          alt="imgCamera"
-          src={this.state.dataUri}
-        />
-        <p className="text" />
+            this.takePhoto();
+          }}>Take photo</button>
+          <br/><br/>
+          <button onClick={ () => {
+            this.stopCamera();
+          }}>Close Camera</button>
+          <br/><br/>
+          <video className="camera"
+            ref={this.videoRef}
+            autoPlay = {true}
+          />
+          <br/><br/>
+          <img
+            alt="imgCamera"
+            src={this.state.dataUri}
+          />
+          <p className="text" />
+          </div>
+        </div>
+
+
+
+        <div className="row">
+        <div className="container col">
+          <ul>
+            {this.state.labels.map(label => (
+                <li class="label">{label}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="container col" >
+            <ul class="print" ref={this.dragulaDecorator}>
+            </ul>
+          </div>
         </div>
       </div>
-    );
+    )
+  };
+
+      dragulaDecorator = componentBackingInstance => {
+      if (componentBackingInstance) {
+      let options = {};
+      Dragula([componentBackingInstance], options);
+      }
   }
 }
 
