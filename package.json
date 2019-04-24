@@ -9,6 +9,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "jslib-html5-camera-photo": "^3.0.2-beta.0",
+    "mongoose": "^5.5.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "^2.1.8"
