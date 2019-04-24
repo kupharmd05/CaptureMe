@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CameraPhoto, { FACING_MODES } from 'jslib-html5-camera-photo';
+import sendImage from "./utils/googleAPI";
 import './App.css';
 
 class App extends Component {
@@ -65,34 +66,6 @@ class App extends Component {
     var imageReady = prepareToSend(base64Image);
     var key = "AIzaSyBO1-gzEojkiM6BU5uDjeDT4ndpvrFFCtA";
     sendImage(imageReady, key);
-    
-    function sendImage(data, key) {
-      // console.log(data);
-
-      return new Promise((resolve, reject) => {
-        
-          fetch("https://vision.googleapis.com/v1/images:annotate?key=" + key,{
-             
-              method: 'post',
-              body: data,
-              contentType: 'application/json',
-              dataType: 'json'
-           }).then(function(response){
-                  response.json().then(function(data){
-                    console.log(data);
-                    var text=data.responses[0].fullTextAnnotation.text;
-
-                    
-                    var newLineText = text.split("\n");
-                    console.log(newLineText);
-                    printText(text);
-                  })
-           })
-               .catch(function( error, response, body ){
-                  console.log(error);
-               })
-      })
-  };
   
 
   function prepareToSend(image) {
@@ -111,12 +84,6 @@ class App extends Component {
           ]
       }
       return JSON.stringify(data);
-  }
-
-  function printText(text){
-
-        document.querySelector('.text').append(text + "\n");
-
   }
 
 
