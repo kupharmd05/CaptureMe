@@ -35,3 +35,31 @@ stopCamera {
     transform: rotate(360deg);
   }
 }
+
+
+.label {
+  list-style-type: none;
+  color: rgb(88, 85, 85);
+  background-color: #ffffffbd;
+  border: 2px solid rgba(51, 51, 51, 0.712);
+  margin: 10px;
+  width: 50%;
+  text-align: center;
+  border-left: none;
+  border-right: none;
+  box-shadow: 4px 4px 10px #444;
+}
+
+.print > li{
+  border: 2px solid #333;
+  box-shadow: 2px -1px 10px #333;
+  background: #345ac3;
+  color: #fff;
+  width: 50%;
+  margin: 10px;
+}
+
+.container {
+  margin-top: 500px;
+  width: 40%;
+}

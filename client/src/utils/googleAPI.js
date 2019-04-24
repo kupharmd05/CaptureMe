@@ -29,14 +29,17 @@ function sendImage(data, key) {
 
 function printText(text){
    console.log(text);
-   for(var i = 0; i< text.length; i++) {
+   text.pop();
+   for(var i = 0; i < text.length; i++) {
       console.log(text[i]);
+      
       let ul = document.createElement("ul");
       let li = document.createElement("li");
       ul.append(li);
       li.append(text[i]);
+      document.querySelector(".print").append(li);
    }
-   document.querySelector('.text').append(text + "\n");
+   
 }
 
 export default sendImage;
