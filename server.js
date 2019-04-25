@@ -20,9 +20,7 @@ app.use(express.static(__dirname + "/public"));
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/capturemecontactlist");
 
 
-// app.get('/express_backend', (req, res) => {
-//   res.send({ express: 'Express backend is connected to React' })
-// });
+
 
 
 
