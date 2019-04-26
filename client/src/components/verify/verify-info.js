@@ -35,7 +35,6 @@ labels: ["full name", "phone", "job title", "email", "fax"]
             </ul>
           </div>
         </div>
-      
             <button>create contact</button>
             <br /><br />
             <button type="submit" formAction="../src/camera.html">retake</button>

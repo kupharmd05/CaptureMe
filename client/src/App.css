@@ -43,11 +43,15 @@ stopCamera {
   background-color: #ffffffbd;
   border: 2px solid rgba(51, 51, 51, 0.712);
   margin: 10px;
-  width: 50%;
+  width: 100%;
   text-align: center;
   border-left: none;
   border-right: none;
   box-shadow: 4px 4px 10px #444;
+}
+
+ul {
+  padding: 0;
 }
 
 li {
@@ -59,11 +63,10 @@ li {
   box-shadow: 2px -1px 10px #333;
   background: rgb(161, 157, 157);
   color: #f3f3f3;
-  width: 50%;
+  width: 100%;
   margin: 10px;
 }
 
 .container {
-  margin-top: 500px;
-  width: 40%;
+  width: 100%;
 }
