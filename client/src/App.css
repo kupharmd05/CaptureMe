@@ -50,11 +50,15 @@ stopCamera {
   box-shadow: 4px 4px 10px #444;
 }
 
-.print > li{
+li {
+  list-style-type: none;
+}
+
+.print > li > input{
   border: 2px solid #333;
   box-shadow: 2px -1px 10px #333;
-  background: #345ac3;
-  color: #fff;
+  background: rgb(161, 157, 157);
+  color: #f3f3f3;
   width: 50%;
   margin: 10px;
 }

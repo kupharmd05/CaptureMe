@@ -33,10 +33,14 @@ function printText(text){
    for(var i = 0; i < text.length; i++) {
       console.log(text[i]);
       
+      let form = document.createElement("form");
+      let input = document.createElement("input");
       let ul = document.createElement("ul");
       let li = document.createElement("li");
+      form.append(ul);
       ul.append(li);
-      li.append(text[i]);
+      li.append(input);
+      input.setAttribute("value", text[i]);
       document.querySelector(".print").append(li);
    }
    
