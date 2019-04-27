@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Dragula from "react-dragula";
 import "../login/login.css";
+import "../../utils/googleAPI";
 
 export class VerifyInfo extends Component {
 
@@ -16,6 +17,11 @@ labels: ["full name", "phone", "job title", "email", "fax"]
 };
 
   render() {
+    
+    
+    const data = this.props.data;
+    const splitData = data.split("\n");
+
     return (
       <div className="login-page">
         <h1>Verify Info</h1>
@@ -31,17 +37,20 @@ labels: ["full name", "phone", "job title", "email", "fax"]
           </div>
 
           <div className="container col" >
-            <ul class="print" ref={this.dragulaDecorator}>
+            <ul className="print" ref={this.dragulaDecorator}>
+              {splitData.map(items =>(
+                <li>{items}</li>
+              ))}
             </ul>
           </div>
         </div>
             <button>create contact</button>
             <br /><br />
-            <button type="submit" formAction="../src/camera.html">retake</button>
+            <button type="submit" formAction="/camera">retake</button>
           </form>
           <br />
           <form>
-            <button type="submit" formAction="../src/capture.html">cancel</button>
+            <button type="submit" formAction="/home">cancel</button>
           </form>
         </div>
       </div>
