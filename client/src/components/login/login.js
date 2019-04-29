@@ -11,6 +11,8 @@ export class Login extends Component {
 
   onChange = (e) => this.setState({[e.target.name]: e.target.value})
 
+
+
   render() {
     return (
       <div className="login-page" style={{height: '100vh'}}>
@@ -21,8 +23,8 @@ export class Login extends Component {
             <form className="login-form">
               <input type="text" placeholder="Username" name="username" onChange={this.onChange}/>
               <input type="text" placeholder="Password" name="password" onChange={this.onChange} />
-              <button>login</button>
-              <p className="message">Not registered? <Link to = "/create"/><strong>Sign Up</strong></p>
+              <button>Login</button>
+              <p className="message">Not registered? <Link to="/create"/><strong>Sign Up</strong></p>
             </form>
           </div>
         </div>
