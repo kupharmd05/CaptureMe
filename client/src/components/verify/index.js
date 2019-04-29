@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import Dragula from "react-dragula";
-import "../login/login.css";
+import "../../utils/googleAPI";
+import "./verify.css";
+
 
 export class VerifyInfo extends Component {
+
+
+  state = {
+    labels: ["full name", "phone", "job title", "email", "fax"],
+  }
 
 dragulaDecorator = componentBackingInstance => {
   if (componentBackingInstance) {
@@ -11,11 +18,29 @@ dragulaDecorator = componentBackingInstance => {
   }
 }
 
-state= {
-labels: ["full name", "phone", "job title", "email", "fax"]
+
+handleInputChange = event => {
+
+  let value = event.target.value;
+  const name = event.target.name;
+
+  console.log(value);
+  console.log(name);
+
+  this.setState({
+    value: this.props.value
+  });
 };
 
   render() {
+    
+const data = this.props.data;
+console.log(data);
+let splitData = {...data.split("\n")};
+
+
+  
+    console.log(splitData);
     return (
       <div className="login-page">
         <h1>Verify Info</h1>
@@ -31,18 +56,23 @@ labels: ["full name", "phone", "job title", "email", "fax"]
           </div>
 
           <div className="container col" >
-            <ul class="print" ref={this.dragulaDecorator}>
+            <ul className="print" ref={this.dragulaDecorator}>
+              {Object.keys(splitData).map((key, item) =>(
+                
+                <li>
+                  <input key={item} name={item} defaultValue={splitData[key]} onChange={this.handleInputChange}/>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
-      
             <button>create contact</button>
             <br /><br />
-            <button type="submit" formAction="../src/camera.html">retake</button>
+            <button type="submit" formAction="/camera">retake</button>
           </form>
           <br />
           <form>
-            <button type="submit" formAction="../src/capture.html">cancel</button>
+            <button type="submit" formAction="/home">cancel</button>
           </form>
         </div>
       </div>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import  Verify from '../verify';
 import sendImage from "../../utils/googleAPI";
 import CameraPhoto, { FACING_MODES } from 'jslib-html5-camera-photo';
+
 
 export class Camera extends Component {
 
@@ -10,13 +12,15 @@ export class Camera extends Component {
         this.videoRef = React.createRef();
         this.state = {
           dataUri: '',
-          labels: ["full name", "phone", "job title", "email", "fax"]
         };
         
+
+        console.log(this.state.dataUri);
       }
     
       state= {
-        data: null
+        data: {},
+        redirect: false
       };
 
       componentDidMount (){
@@ -24,6 +28,7 @@ export class Camera extends Component {
         
       }
     
+      
     
       startCamera(idealFacingMode, idealResolution) {
         this.cameraPhoto.startCamera(idealFacingMode, idealResolution)
@@ -57,8 +62,10 @@ export class Camera extends Component {
         var base64Image = blob.replace("data:image/png;base64,", "");
         var imageReady = prepareToSend(base64Image);
         var key = "AIzaSyBO1-gzEojkiM6BU5uDjeDT4ndpvrFFCtA";
-        sendImage(imageReady, key);
-      
+        sendImage(imageReady, key).then((data) => {
+          this.setState({ data })
+        });
+        
     
       function prepareToSend(image) {
           var data = {
@@ -85,15 +92,28 @@ export class Camera extends Component {
       stopCamera () {
         this.cameraPhoto.stopCamera()
           .then(() => {
-            console.log('Camera stopped!');
+            if(this.state.data.length !==0) {
+              this.setState({ redirect: true });
+            }
+            else {
+              alert("There is no data available");
+            }
           })
           .catch((error) => {
             console.log('No camera to stop!:', error);
           });
       }
-    
 
   render() {
+
+    console.log('====================================');
+    console.log(this.state.data);
+    console.log('====================================');
+
+    if (this.state.redirect) {
+      return <Verify data={this.state.data} />
+    }
+
     return (
         <div className="capture-form">
             <button onClick={() => {
@@ -106,9 +126,12 @@ export class Camera extends Component {
                 this.takePhoto();
             }}>Take photo</button>
             <br /><br />
-            <button onClick={() => {
-                this.stopCamera();
-            }}>Close Camera</button>
+
+             {/* <a href="/verify"> */}
+             <button onClick={() => {
+                      this.stopCamera();
+                  }}>Close Camera</button>
+                  {/* </a> */}
             <br /><br />
             <video className="camera"
                 ref={this.videoRef}
@@ -119,7 +142,14 @@ export class Camera extends Component {
                 alt="imgCamera"
                 src={this.state.dataUri}
             />
+
+          <div className="container col" >
+            <ul className="print" ref={this.dragulaDecorator}>
+            </ul>
+          </div>
         </div> 
+
+        
     )
   }
 }
