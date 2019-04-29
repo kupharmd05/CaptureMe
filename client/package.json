@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@okta/okta-react": "^1.2.0",
+    "@okta/okta-signin-widget": "^2.19.0",
     "axios": "^0.18.0",
     "express": "^4.16.4",
     "jslib-html5-camera-photo": "^3.0.2-beta.0",
