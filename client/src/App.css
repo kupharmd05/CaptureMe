@@ -50,6 +50,7 @@ stopCamera {
   box-shadow: 4px 4px 10px #444;
 }
 
+
 ul {
   padding: 0;
 }
@@ -58,14 +59,6 @@ li {
   list-style-type: none;
 }
 
-.print > li > input{
-  border: 2px solid #333;
-  box-shadow: 2px -1px 10px #333;
-  background: rgb(161, 157, 157);
-  color: #f3f3f3;
-  width: 100%;
-  margin: 10px;
-}
 
 .container {
   width: 100%;

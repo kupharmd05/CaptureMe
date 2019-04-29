@@ -1,0 +1,11 @@
+ul.print > li > input {
+    outline: none;
+    border-bottom: 1px solid #333;
+    padding: 10px;
+    font-size: 12px;
+
+}
+
+ul.print > li > input:hover {
+    cursor: all-scroll;
+}
