@@ -5,4 +5,7 @@ const contactsController = require("../../controllers/contacts");
 router.route("/")
   .post(contactsController.create);
 
+
+router.route("/vcard").post()
+
 module.exports = router;
