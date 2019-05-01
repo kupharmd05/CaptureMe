@@ -6,6 +6,7 @@
     "@okta/okta-react": "^1.2.0",
     "@okta/okta-signin-widget": "^2.19.0",
     "axios": "^0.18.0",
+    "create-vcard": "^1.0.0",
     "express": "^4.16.4",
     "jslib-html5-camera-photo": "^3.0.2-beta.0",
     "react": "^16.8.6",
@@ -13,7 +14,8 @@
     "react-dragula": "^1.1.17",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "vcards-js": "^2.10.0"
   },
   "scripts": {
     "start": "react-scripts start",
