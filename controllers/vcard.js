@@ -4,7 +4,7 @@ module.exports = {
     create: function(req, res) {
     let vCard = vCardJS();
 
-    vCard.firstName = "eric";
+    vCard.firstName = 'eric';
     vCard.lastName = 'Nesser';
     vCard.workPhone = '312-555-1212';
     vCard.email = 'e.nesser@emailhost.tld';
@@ -25,4 +25,5 @@ module.exports = {
     res.send(vCard.getFormattedString());
     
 }
+
 };

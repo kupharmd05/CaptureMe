@@ -72,8 +72,20 @@ handleInputChange = event => {
 handleCreateContact = (event) => {
   event.preventDefault();
   const returnedContact = this.splitData;
-  console.log(this.splitData);
-  
+  console.log(returnedContact);
+
+  fetch('/api/vcard',{
+    method: 'POST',
+    body: returnedContact,
+    contentType: "application/json",
+    dataType: "json"
+    })
+    .then(function(response){
+      return response.json();
+    })
+    .then(function(myJson){
+      console.log(JSON.stringify(myJson));
+    });
 };
 
 
