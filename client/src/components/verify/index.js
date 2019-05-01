@@ -11,7 +11,7 @@ export class VerifyInfo extends Component {
     super(props);
 
     this.state = {
-      labels: ["full name", "phone", "job title", "email", "fax"],
+      labels: ["full name", "phone", "job title", "email"],
     }
 
     this.splitData = this.getInitialSplitData(this.props.data);
