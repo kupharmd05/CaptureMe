@@ -1,29 +1,36 @@
+/* eslint-disable prefer-destructuring */
 const vCardJS = require('vcards-js');
 
 module.exports = {
-    create: function(req, res) {
-    let vCard = vCardJS();
+  create: function(req, res) {
+    console.log(req.body);
+    const dataThatIRequested = req.body.data;
+    const splitFirstWord = dataThatIRequested[0].split(' ');
 
-    vCard.firstName = 'eric';
-    vCard.lastName = 'Nesser';
-    vCard.workPhone = '312-555-1212';
-    vCard.email = 'e.nesser@emailhost.tld';
-    vCard.title = 'Software Developer';
+    const vCard = vCardJS();
+
+    vCard.firstName = splitFirstWord[0];
+    vCard.lastName = splitFirstWord[1];
+    vCard.workPhone = dataThatIRequested[1];
+    vCard.title = dataThatIRequested[2];
+    vCard.email = dataThatIRequested[3];
 
     // //save to file
     // vCard.saveToFile('./eric-nesser.vcf');
-    
+
     // //get as formatted string
     // console.log(vCard.getFormattedString());
     //     },
 
-    //set content-type and disposition including desired filename
-    res.set('Content-Type', 'text/vcard; name="enesser.vcf"');
-    res.set('Content-Disposition', 'inline; filename="enesser.vcf"');
- 
-    //send the response
+    // set content-type and disposition including desired filename
+    res.set('Content-Type', 'text/vcard; name="businsscard.vcf"');
+    res.set('Content-Disposition', 'inline; filename="businesscard.vcf"');
+
+    // send the response
     res.send(vCard.getFormattedString());
-    
-}
+
+    console.log(vCard.getFormattedString());
+
+  },
 
 };

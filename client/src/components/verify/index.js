@@ -69,23 +69,20 @@ handleInputChange = event => {
   });
 };
 
-handleCreateContact = (event) => {
+handleCreateContact = async (event) => {
   event.preventDefault();
   const returnedContact = this.splitData;
   console.log(returnedContact);
 
-  fetch('/api/vcard',{
+  const response = await fetch('/api/vcard',{
     method: 'POST',
-    body: returnedContact,
-    contentType: "application/json",
-    dataType: "json"
-    })
-    .then(function(response){
-      return response.json();
-    })
-    .then(function(myJson){
-      console.log(JSON.stringify(myJson));
-    });
+
+    headers: {
+    "Content-Type": 'application/json',
+    },  
+    body: JSON.stringify({ data: this.splitData }),
+  });
+  
 };
 
 
@@ -137,10 +134,3 @@ handleCreateContact = (event) => {
 }
 
 export default VerifyInfo
-
-
-
-
-
-  
-
