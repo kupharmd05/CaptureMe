@@ -7,7 +7,7 @@ import Navbar from './components/layout/Navbar';
 import {Security, SecureRoute, ImplicitCallback} from '@okta/okta-react';
 import Login from './components/auth/login';
 import Home from './components/pages/Home';
-import registrationForm from './components/auth/registrationForm';
+
 
 function onAuthRequired({ history }) {
   history.push('/login')
@@ -31,7 +31,6 @@ class App extends Component {
               <Route path="/create" component={CreateLogin}/>
               <SecureRoute path="/camera" component={Camera}/>
               <Route path='/login' render={() => <Login baseUrl='https://dev-680655.okta.com' />} />
-              <Route path='/register' component={registrationForm} />
               <Route path='/implicit/callback' component={ImplicitCallback} />
               
             </div>

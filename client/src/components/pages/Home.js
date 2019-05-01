@@ -33,7 +33,7 @@ export default withAuth(class Home extends Component {
 
     const mainContent = this.state.authenticated ? (
         <div>
-            <Redirect to={{ pathname: '/camera' }}/> 
+            {/* <Redirect to={{ pathname: '/camera' }}/>  */}
             <button className="btn btn-dark btn-lg" onClick={this.logout}>Logout</button>
         </div>
     ) : (

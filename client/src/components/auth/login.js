@@ -6,6 +6,8 @@ import { withAuth } from '@okta/okta-react';
 export default withAuth(class Login extends Component {
   constructor(props) {
     super(props);
+    this.onSuccess = this.onSuccess.bind(this);
+    this.onError = this.onError.bind(this);
     this.state = {
       authenticated: null
     };
@@ -24,14 +26,15 @@ export default withAuth(class Login extends Component {
   }
 
   onSuccess = (res) => {
+    // console.log(res)
     if (res.status === 'SUCCESS') {
       return this.props.auth.redirect({
-        sessionToken: res.session.token
+        sessionToken: res.idToken
       });
-   } else {
-    // The user can be in another authentication state that requires further action.
-    // For more information about these states, see:
-    //   https://github.com/okta/okta-signin-widget#rendereloptions-success-error
+    } else {
+      // The user can be in another authentication state that requires further action.
+      // For more information about these states, see:
+      //   https://github.com/okta/okta-signin-widget#rendereloptions-success-error
     }
   }
 
@@ -42,10 +45,10 @@ export default withAuth(class Login extends Component {
   render() {
     if (this.state.authenticated === null) return null;
     return this.state.authenticated ?
-      <Redirect to={{ pathname: '/camera' }}/> :
+      <Redirect to={{ pathname: '/camera' }} /> :
       <SignInWidget
         baseUrl={this.props.baseUrl}
         onSuccess={this.onSuccess}
-        onError={this.onError}/>;
+        onError={this.onError} />;
   }
 });
