@@ -11,11 +11,16 @@ export class VerifyInfo extends Component {
     super(props);
 
     this.state = {
+<<<<<<< HEAD
       labels: ["full name", "phone", "job title", "email", "fax"],
       
+=======
+      labels: ["full name", "phone", "job title", "email"],
+      splitData: this.getInitialSplitData(this.props.data)
+>>>>>>> 0b3956ed31b649438e78a8fe485b70868132be16
     }
 
-    this.splitData = this.getInitialSplitData(this.props.data);
+    
   }
 
 
@@ -33,6 +38,7 @@ dragulaDecorator = componentBackingInstance => {
     dragula.on('drop', (itemThatWasDragged, parent, someOtherThing, itemBelow) => {
       const updatedArray = [...parent.children].map((child) => child.children[0].value);
       this.splitData = updatedArray;
+      console.log(this.splitData);
       // console.log();
       // const keyOfItemDragged = itemThatWasDragged.value;
       // const valueOfItemDragged = this.state.splitData[keyOfItemDragged];
@@ -58,35 +64,34 @@ dragulaDecorator = componentBackingInstance => {
 
 
 handleInputChange = event => {
-
   let updatedValue = event.target.value;
   const name = event.target.name;
-
-  const updatedSplitData = this.splitData;
-  updatedSplitData[name] = updatedValue
-
+  console.log(name);
+  console.log(this.splitData);
+  console.log(updatedValue);
+  let updatedSplitData = this.state.splitData;
+  console.log(updatedSplitData)
+  updatedSplitData[name] = updatedValue;
   this.setState({
     splitData: updatedSplitData
   });
+  
 };
 
-handleCreateContact = (event) => {
+handleCreateContact = async (event) => {
   event.preventDefault();
-  const returnedContact = this.splitData;
+  const returnedContact = this.state.splitData;
   console.log(returnedContact);
 
-  fetch('/api/vcard',{
+  const response = await fetch('/api/vcard',{
     method: 'POST',
-    body: returnedContact,
-    contentType: "application/json",
-    dataType: "json"
-    })
-    .then(function(response){
-      return response.json();
-    })
-    .then(function(myJson){
-      console.log(JSON.stringify(myJson));
-    });
+
+    headers: {
+    "Content-Type": 'application/json',
+    },  
+    body: JSON.stringify({ data: this.state.splitData }),
+  });
+  
 };
 
 
@@ -110,7 +115,7 @@ handleCreateContact = (event) => {
 
           <div className="container col" >
             <ul className="print" ref={this.dragulaDecorator}>
-              {this.splitData.map((item, index) => (
+              {this.state.splitData.map((item, index) => (
                 
                 <li>
                 <input key={index} name={index} value={item} onChange={this.handleInputChange}/>
@@ -138,10 +143,3 @@ handleCreateContact = (event) => {
 }
 
 export default VerifyInfo
-
-
-
-
-
-  
-

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import  Verify from '../verify';
 import sendImage from "../../utils/googleAPI";
 import CameraPhoto, { FACING_MODES } from 'jslib-html5-camera-photo';
+import "./camera.css";
 
 
 export class Camera extends Component {
@@ -12,8 +13,8 @@ export class Camera extends Component {
         this.videoRef = React.createRef();
         this.state = {
           dataUri: '',
-          data: "ROBERT CURRY\nSEO Specialist\nrobert.curry @golocalinteractive.com\no: 9839486261 : 93297852\n10975 Benson De S 250\nOverland Park, KS 6620\ngolocalinteractive com\n",
-          redirect: true
+          data: {},
+          redirect: false
         };
         
 
@@ -112,7 +113,7 @@ export class Camera extends Component {
     }
 
     return (
-        <div className="capture-form">
+        <div className="form">
             <button onClick={() => {
                 let facingMode = FACING_MODES.ENVIRONMENT;
                 let idealResolution = { width: 640, height: 480 };
