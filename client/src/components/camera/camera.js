@@ -13,8 +13,8 @@ export class Camera extends Component {
         this.videoRef = React.createRef();
         this.state = {
           dataUri: '',
-          data: "ROBERT CURRY\nSEO Specialist\nrobert.curry @golocalinteractive.com\no: 9839486261 : 93297852\n10975 Benson De S 250\nOverland Park, KS 6620\ngolocalinteractive com\n",
-          redirect: true
+          data: {},
+          redirect: false
         };
         
 
