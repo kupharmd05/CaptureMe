@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Dragula from "react-dragula";
-
 import "../../utils/googleAPI";
 import "./verify.css";
 
@@ -11,8 +10,9 @@ export class VerifyInfo extends Component {
     super(props);
 
     this.state = {
-      labels: ["full name", "phone", "job title", "email"],
-      splitData: this.getInitialSplitData(this.props.data)
+      labels: ["full name", "phone", "  job title", "email"],
+      splitData: this.getInitialSplitData(this.props.data),
+      updatedArray: []
     }
 
     
@@ -26,14 +26,20 @@ export class VerifyInfo extends Component {
   
   }
 
-dragulaDecorator = componentBackingInstance => {
+dragulaDecorator = async componentBackingInstance => {
   if (componentBackingInstance) {
   let options = {};
     const dragula = Dragula([componentBackingInstance], options);
-    dragula.on('drop', (itemThatWasDragged, parent, someOtherThing, itemBelow) => {
+    await dragula.on('drop', (itemThatWasDragged, parent, someOtherThing, itemBelow) => {
       const updatedArray = [...parent.children].map((child) => child.children[0].value);
-      this.splitData = updatedArray;
-      console.log(this.splitData);
+      this.setState({
+        updatedArray: updatedArray
+      })
+
+      
+
+
+
       // console.log();
       // const keyOfItemDragged = itemThatWasDragged.value;
       // const valueOfItemDragged = this.state.splitData[keyOfItemDragged];
@@ -61,30 +67,25 @@ dragulaDecorator = componentBackingInstance => {
 handleInputChange = event => {
   let updatedValue = event.target.value;
   const name = event.target.name;
-  console.log(name);
-  console.log(this.splitData);
-  console.log(updatedValue);
   let updatedSplitData = this.state.splitData;
-  console.log(updatedSplitData)
   updatedSplitData[name] = updatedValue;
   this.setState({
     splitData: updatedSplitData
   });
-  
+  console.log(this.state.updatedArray);
 };
 
 handleCreateContact = async (event) => {
   event.preventDefault();
-  const returnedContact = this.state.splitData;
-  console.log(returnedContact);
+  const returnedContact = this.state.updatedArray;
+  console.log(this.state.updatedArray);
 
   const response = await fetch('/api/vcard',{
     method: 'POST',
-
     headers: {
     "Content-Type": 'application/json',
     },  
-    body: JSON.stringify({ data: this.state.splitData }),
+    body: JSON.stringify({ data: returnedContact }),
   });
   
 };
@@ -102,8 +103,8 @@ handleCreateContact = async (event) => {
           <div className="row">
           <div className="container col">
             <ul>
-              {this.state.labels.map(label => (
-                <li class="label">{label}</li>
+              {this.state.labels.map((label, index) => (
+                <li key={index} className="label">{label}</li>
               ))}
             </ul>
           </div>
@@ -114,7 +115,16 @@ handleCreateContact = async (event) => {
                 
                 <li>
                 <input key={index} name={index} value={item} onChange={this.handleInputChange}/>
-
+                <button className="delete btn btn-danger" onClick={(event) => {
+                  event.preventDefault();
+                  console.log(event)
+                    var newItems = this.state.splitData.filter((_item) => {
+                      return _item !== item;
+                    });
+                  
+                    this.setState({splitData: newItems });
+                  }
+                }>X</button>
                 </li>
               ))}
             </ul>
