@@ -1,0 +1,13 @@
+.mainNav {
+    background-color: transparent;
+    text-align: center;
+    
+}
+
+.navbar-brand {
+    color: #ffffff;
+}
+
+.font-hover:hover {
+    color: #29DD00;
+}
