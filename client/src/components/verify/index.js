@@ -12,6 +12,7 @@ export class VerifyInfo extends Component {
 
     this.state = {
       labels: ["full name", "phone", "job title", "email", "fax"],
+      
     }
 
     this.splitData = this.getInitialSplitData(this.props.data);
@@ -61,7 +62,7 @@ handleInputChange = event => {
   let updatedValue = event.target.value;
   const name = event.target.name;
 
-  const updatedSplitData = this.state.splitData;
+  const updatedSplitData = this.splitData;
   updatedSplitData[name] = updatedValue
 
   this.setState({

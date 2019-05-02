@@ -1,4 +1,4 @@
 module.exports = {
-    Contact: require("./contact")
+    VCard: require("./contact")
   };
   

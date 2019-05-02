@@ -17,7 +17,7 @@ app.use(routes);
 
 app.use(express.static(`${__dirname  }/public`));
 
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/capturemecontactlist");
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/capturemecontactlist');
 
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
