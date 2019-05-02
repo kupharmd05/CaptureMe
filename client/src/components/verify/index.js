@@ -12,9 +12,10 @@ export class VerifyInfo extends Component {
 
     this.state = {
       labels: ["full name", "phone", "job title", "email"],
+      splitData: this.getInitialSplitData(this.props.data)
     }
 
-    this.splitData = this.getInitialSplitData(this.props.data);
+    
   }
 
 
@@ -32,6 +33,7 @@ dragulaDecorator = componentBackingInstance => {
     dragula.on('drop', (itemThatWasDragged, parent, someOtherThing, itemBelow) => {
       const updatedArray = [...parent.children].map((child) => child.children[0].value);
       this.splitData = updatedArray;
+      console.log(this.splitData);
       // console.log();
       // const keyOfItemDragged = itemThatWasDragged.value;
       // const valueOfItemDragged = this.state.splitData[keyOfItemDragged];
@@ -57,21 +59,23 @@ dragulaDecorator = componentBackingInstance => {
 
 
 handleInputChange = event => {
-
   let updatedValue = event.target.value;
   const name = event.target.name;
-
-  const updatedSplitData = this.state.splitData;
-  updatedSplitData[name] = updatedValue
-
+  console.log(name);
+  console.log(this.splitData);
+  console.log(updatedValue);
+  let updatedSplitData = this.state.splitData;
+  console.log(updatedSplitData)
+  updatedSplitData[name] = updatedValue;
   this.setState({
     splitData: updatedSplitData
   });
+  
 };
 
 handleCreateContact = async (event) => {
   event.preventDefault();
-  const returnedContact = this.splitData;
+  const returnedContact = this.state.splitData;
   console.log(returnedContact);
 
   const response = await fetch('/api/vcard',{
@@ -80,7 +84,7 @@ handleCreateContact = async (event) => {
     headers: {
     "Content-Type": 'application/json',
     },  
-    body: JSON.stringify({ data: this.splitData }),
+    body: JSON.stringify({ data: this.state.splitData }),
   });
   
 };
@@ -106,7 +110,7 @@ handleCreateContact = async (event) => {
 
           <div className="container col" >
             <ul className="print" ref={this.dragulaDecorator}>
-              {this.splitData.map((item, index) => (
+              {this.state.splitData.map((item, index) => (
                 
                 <li>
                 <input key={index} name={index} value={item} onChange={this.handleInputChange}/>
