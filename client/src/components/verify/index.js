@@ -11,13 +11,12 @@ export class VerifyInfo extends Component {
     super(props);
 
     this.state = {
-<<<<<<< HEAD
-      labels: ["full name", "phone", "job title", "email", "fax"],
+
       
-=======
+      
       labels: ["full name", "phone", "job title", "email"],
       splitData: this.getInitialSplitData(this.props.data)
->>>>>>> 0b3956ed31b649438e78a8fe485b70868132be16
+
     }
 
     
