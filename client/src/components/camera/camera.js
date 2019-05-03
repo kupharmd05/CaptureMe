@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import  Verify from '../verify';
 import sendImage from "../../utils/googleAPI";
 import CameraPhoto, { FACING_MODES } from 'jslib-html5-camera-photo';
+import Navbar from "../layout/Navbar";
 import "./camera.css";
 
 
@@ -113,7 +114,10 @@ export class Camera extends Component {
     }
 
     return (
+      <div>
+      <Navbar />
         <div className="form">
+        
             <button onClick={() => {
                 let facingMode = FACING_MODES.ENVIRONMENT;
                 let idealResolution = { width: 640, height: 480 };
@@ -146,7 +150,7 @@ export class Camera extends Component {
             </ul>
           </div>
         </div> 
-
+        </div>
         
     )
   }

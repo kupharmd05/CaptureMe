@@ -4,7 +4,6 @@ import "../../utils/googleAPI";
 import "./verify.css";
 
 
-
 export class VerifyInfo extends Component {
   constructor(props) {
     super(props);
@@ -72,7 +71,7 @@ handleInputChange = event => {
   this.setState({
     splitData: updatedSplitData
   });
-  console.log(this.state.updatedArray);
+  console.log(this.state.splitData);
 };
 
 handleCreateContact = async (event) => {
@@ -96,7 +95,9 @@ handleCreateContact = async (event) => {
 
     
     return (
+      
       <div className="login-page">
+      
         <h1>Verify Info</h1>
         <div className="form">
           <form className="login-form">
@@ -117,7 +118,7 @@ handleCreateContact = async (event) => {
                 <input key={index} name={index} value={item} onChange={this.handleInputChange}/>
                 <button className="delete btn btn-danger" onClick={(event) => {
                   event.preventDefault();
-                  console.log(event)
+                  console.log(event.target)
                     var newItems = this.state.splitData.filter((_item) => {
                       return _item !== item;
                     });
@@ -136,7 +137,7 @@ handleCreateContact = async (event) => {
           </form>
           <br />
           <form>
-            <button type="submit" formAction="/home">cancel</button>
+            <button type="submit" formAction="/">cancel</button>
           </form>
         </div>
       </div>
