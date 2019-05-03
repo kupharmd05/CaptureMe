@@ -9,8 +9,8 @@ export class VerifyInfo extends Component {
     super(props);
 
     this.state = {
-      labels: ["full name", "phone", "  job title", "email"],
-      splitData: this.getInitialgitSplitData(this.props.data),
+      labels: ["full name", "phone", "job title", "email"],
+      splitData: this.getInitialSplitData(this.props.data),
       updatedArray: []
     }
 
