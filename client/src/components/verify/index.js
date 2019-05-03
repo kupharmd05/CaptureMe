@@ -33,7 +33,7 @@ dragulaDecorator = async componentBackingInstance => {
       const updatedArray = [...parent.children].map((child) => child.children[0].value);
       this.setState({
         updatedArray: updatedArray
-      })
+      }, ()=> console.log(this.state))
 
       
 
@@ -70,7 +70,7 @@ handleInputChange = event => {
   updatedSplitData[name] = updatedValue;
   this.setState({
     splitData: updatedSplitData
-  });
+  }, ()=> console.log(this.state));
   console.log(this.state.splitData);
 };
 
@@ -124,7 +124,7 @@ handleCreateContact = async (event) => {
                       return _item !== item;
                     });
                   
-                    this.setState({splitData: newItems });
+                    this.setState({splitData: newItems }, ()=> console.log(this.state));
                   }
                 }>X</button>
                 </li>
