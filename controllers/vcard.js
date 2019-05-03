@@ -11,10 +11,9 @@ module.exports = {
 
     vCard.firstName = splitFirstWord[0];
     vCard.lastName = splitFirstWord[1];
-    vCard.email = dataThatIRequested[3];
     vCard.workPhone = dataThatIRequested[1];
     vCard.title = dataThatIRequested[2];
-    
+    vCard.email = dataThatIRequested[3];
 
     // //save to file
     // vCard.saveToFile('./eric-nesser.vcf');
