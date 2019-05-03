@@ -3,6 +3,8 @@ import  Verify from '../verify';
 import sendImage from "../../utils/googleAPI";
 import CameraPhoto, { FACING_MODES } from 'jslib-html5-camera-photo';
 import "./camera.css";
+import Navbar from "../layout/Navbar"
+import { Link } from 'react-router-dom';
 
 
 export class Camera extends Component {
@@ -113,6 +115,10 @@ export class Camera extends Component {
     }
 
     return (
+      <React.Fragment>
+        <Navbar>
+          <Link to={'/'}>Home</Link>
+        </Navbar>
         <div className="form">
             <button onClick={() => {
                 let facingMode = FACING_MODES.ENVIRONMENT;
@@ -146,7 +152,7 @@ export class Camera extends Component {
             </ul>
           </div>
         </div> 
-
+      </React.Fragment>
         
     )
   }
