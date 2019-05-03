@@ -154,11 +154,11 @@ export class Camera extends Component {
             </ul>
           </div>
         </div> 
-<<<<<<< HEAD
+
       </React.Fragment>
-=======
-        </div>
->>>>>>> 626395c10e1fbbb6b893a2ea95aad03244c3d036
+
+        
+
         
     )
   }
