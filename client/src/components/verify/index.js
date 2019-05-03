@@ -116,6 +116,7 @@ handleCreateContact = async (event) => {
                 
                 <li>
                 <input key={index} name={index} value={item} onChange={this.handleInputChange}/>
+                <span className="drag" aria-disabled="true">::</span>
                 <button className="delete btn btn-danger" onClick={(event) => {
                   event.preventDefault();
                   console.log(event.target)
