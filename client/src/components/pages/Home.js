@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-// import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { withAuth } from '@okta/okta-react';
 import logo from './capturemelogo2.png';
 import "./Home.css";
+// import Camera from "../camera/camera"
+import Navbar from '../layout/Navbar';
+
+
 
 export default withAuth(class Home extends Component {
   state = { authenticated: null };
@@ -34,20 +38,31 @@ export default withAuth(class Home extends Component {
     if (this.state.authenticated === null) return null;
 
     const mainContent = this.state.authenticated ? (
-      <div>
-        {/* <Redirect to={{ pathname: '/camera' }}/>  */}
-        <button className="btn btn-dark btn-lg" onClick={this.logout}>Logout</button>
-      </div>
+        <div>
+          <React.Fragment>
+            <Navbar onClick = {this.logout}>
+              <p>Logout</p>
+            </Navbar>
+            <Link to={'/camera'} className="btn btn-warning">Camera</Link>
+            
+          </React.Fragment>
+       
+            {/* <button className="btn btn-dark btn-lg" onClick={this.logout}>Logout</button> */}
+        </div>
     ) : (
         <div>
-          {/* <p className="">Please Log In</p> */}
-          <button className="button" onClick={this.login}>Login</button>
+            <Navbar onClick = {this.login}>
+              <p>Login</p>
+            </Navbar>
+            {/* <button className="button" onClick={this.login}>Login</button> */}
         </div>
       );
 
 
     return (
+      
       <div className="jumbotron">
+        
         <img src={logo} alt="Logo" />
         {mainContent}
       </div>

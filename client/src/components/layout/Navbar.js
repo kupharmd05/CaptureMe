@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import "./navbar.css";
+import login from '../auth/login';
 
 
-class Navbar extends Component {
-  render() {
+
+function Navbar (props) {
+  
+  
     return (
       <nav className="mainNav">
         <div className="container">
@@ -12,13 +15,11 @@ class Navbar extends Component {
             <strong>CaptureMe</strong>
           </a>
           <span className="navbar-brand">|</span>
-          <a className="navbar-brand font-hover" href="/camera">
-            <strong>Log Out</strong>
-          </a>
+          <button className="button"{...props}>{props.children}</button>
         </div>
       </nav>
     )
   }
-}
+
 
 export default Navbar
