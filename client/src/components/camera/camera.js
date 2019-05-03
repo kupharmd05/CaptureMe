@@ -157,7 +157,7 @@ export class Camera extends Component {
 
       </React.Fragment>
 
-        
+        </div>
 
         
     )
