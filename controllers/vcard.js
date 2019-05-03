@@ -3,13 +3,16 @@ const db = require("../models");
 
 module.exports = {
     create: function(req, res) {
-    let vCard = vCardJS();
-
-    vCard.firstName = 'eric';
-    vCard.lastName = 'Nesser';
-    vCard.workPhone = '312-555-1212';
-    vCard.email = 'e.nesser@emailhost.tld';
-    vCard.title = 'Software Developer';
+        const dataThatIRequested = req.body.data;
+        const splitFirstWord = dataThatIRequested[0].split(' ');
+    
+        const vCard = vCardJS();
+    
+        vCard.firstName = splitFirstWord[0];
+        vCard.lastName = splitFirstWord[1];
+        vCard.workPhone = dataThatIRequested[1];
+        vCard.title = dataThatIRequested[2];
+        vCard.email = dataThatIRequested[3];
 
     // //save to file
     // vCard.saveToFile('./eric-nesser.vcf');
