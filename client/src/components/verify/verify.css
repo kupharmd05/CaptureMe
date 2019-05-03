@@ -3,7 +3,7 @@ ul.print > li > input {
     border-bottom: 1px solid #333;
     padding: 10px;
     font-size: 12px;
-    width: 119%;
+    width: 100%;
 
 }
 
@@ -13,4 +13,13 @@ ul.print > li > input:hover {
 
 li {
     margin-left: -25px;
+}
+
+button.delete.btn.btn-danger {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin-bottom: 10px;
+    margin-left: 1px;
+    position: absolute;
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import  Verify from '../verify';
 import sendImage from "../../utils/googleAPI";
 import CameraPhoto, { FACING_MODES } from 'jslib-html5-camera-photo';
+import Navbar from "../layout/Navbar";
 import "./camera.css";
 import Navbar from "../layout/Navbar"
 import { Link } from 'react-router-dom';
@@ -120,6 +121,7 @@ export class Camera extends Component {
           <Link to={'/'}>Home</Link>
         </Navbar>
         <div className="form">
+        
             <button onClick={() => {
                 let facingMode = FACING_MODES.ENVIRONMENT;
                 let idealResolution = { width: 640, height: 480 };
@@ -152,7 +154,11 @@ export class Camera extends Component {
             </ul>
           </div>
         </div> 
+<<<<<<< HEAD
       </React.Fragment>
+=======
+        </div>
+>>>>>>> 626395c10e1fbbb6b893a2ea95aad03244c3d036
         
     )
   }

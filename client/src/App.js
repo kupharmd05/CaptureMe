@@ -3,7 +3,6 @@ import CreateLogin from "./components/login/create-login"
 import './App.css';
 import Camera from "./components/camera/camera";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import Navbar from './components/layout/Navbar';
 import {Security, SecureRoute, ImplicitCallback} from '@okta/okta-react';
 import Login from './components/auth/login';
 import Home from './components/pages/Home';
@@ -25,7 +24,7 @@ class App extends Component {
                   onAuthRequired={onAuthRequired} >
         <div>
          
-          {/* <Navbar /> */}
+         
             <div className="container">
               <Route exact path="/" component={Home}/>
               <SecureRoute path="/camera" component={Camera}/> 
