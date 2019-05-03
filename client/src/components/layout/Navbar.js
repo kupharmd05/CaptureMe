@@ -12,7 +12,7 @@ class Navbar extends Component {
             <strong>CaptureMe</strong>
           </a>
           <span className="navbar-brand">|</span>
-          <a className="navbar-brand font-hover" href="/#">
+          <a className="navbar-brand font-hover" href="/camera">
             <strong>Log Out</strong>
           </a>
         </div>

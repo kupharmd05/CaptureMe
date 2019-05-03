@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import { Redirect } from 'react-router-dom';
 import { withAuth } from '@okta/okta-react';
-import logo from './capturmebest (1).png';
+import logo from './capturemelogo2.png';
 import "./Home.css";
 
 export default withAuth(class Home extends Component {
