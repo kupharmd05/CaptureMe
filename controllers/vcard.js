@@ -15,17 +15,18 @@ module.exports = {
     vCard.title = dataThatIRequested[2];
     vCard.email = dataThatIRequested[3];
 
-    // //save to file
-    // vCard.saveToFile('./eric-nesser.vcf');
 
-    // //get as formatted string
-    // console.log(vCard.getFormattedString());
-    //     },
 
 
     
   
 
+  db.VCard
+    .create(req.body)
+    .then(dbModel => {
+      // set content-type and disposition including desired filename
+      res.set('Content-Type', 'text/vcard; name="businesscard.vcf"');
+      res.set('Content-Disposition', 'inline; filename="businesscard.vcf"');
 
     db.VCard
       .create(req.body)
