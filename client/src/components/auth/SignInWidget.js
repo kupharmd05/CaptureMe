@@ -13,14 +13,9 @@ class SignInWidget extends Component {
     this.widget = new OktaSignIn({
       baseUrl: this.props.baseUrl,
       clientId: '0oaiiphavOO8bpeh2356',
-<<<<<<< HEAD
       logo: logo,
-      redirectUri: "http://localhost:3000/implicit/callback",
-=======
-      logo: 'CaptureMe.png',
       // redirectUri: "http://localhost:3000/implicit/callback",
       redirectUri: "https://mysterious-sierra-84651.herokuapp.com/implicit/callback",
->>>>>>> 669f1e7c8f1856bbf59cf9ca03f14631ba24b5dd
       authParams: {
         scopes: [
           'openid',
