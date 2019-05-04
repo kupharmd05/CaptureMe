@@ -23,21 +23,21 @@ module.exports = {
     //     },
 
 
-    },
+    
   
 
 
-  db.VCard
-    .create(req.body)
-    .then(dbModel => {
+    db.VCard
+      .create(req.body)
+      .then(dbModel => {
       // set content-type and disposition including desired filename
-      res.set('Content-Type', 'text/vcard; name="businesscard.vcf"');
-      res.set('Content-Disposition', 'inline; filename="businesscard.vcf"');
+        res.set('Content-Type', 'text/vcard; name="businesscard.vcf"');
+        res.set('Content-Disposition', 'inline; filename="businesscard.vcf"');
 
-      // send the response
-      res.send(vCard.getFormattedString());
-    })
-    .catch(err => res.status(422).json(err));
+        // send the response
+        res.send(vCard.getFormattedString());
+      })
+      .catch(err => res.status(422).json(err));
 
 
 
