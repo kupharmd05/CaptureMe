@@ -15,37 +15,24 @@ module.exports = {
     vCard.title = dataThatIRequested[2];
     vCard.email = dataThatIRequested[3];
 
-    // //save to file
-    // vCard.saveToFile('./eric-nesser.vcf');
-
-    // //get as formatted string
-    // console.log(vCard.getFormattedString());
-    //     },
 
 
-    res.set('Content-Type', 'text/vcard; name="businesscard.vcf"');
-    res.set('Content-Disposition', 'inline; filename="businesscard.vcf"');
 
-    // send the response
-    res.send(vCard.getFormattedString());
+
+  db.VCard
+    .create(req.body)
+    .then(dbModel => {
+      // set content-type and disposition including desired filename
+      res.set('Content-Type', 'text/vcard; name="businesscard.vcf"');
+      res.set('Content-Disposition', 'inline; filename="businesscard.vcf"');
+
+      // send the response
+      res.send(vCard.getFormattedString());
+    })
+    .catch(err => res.status(422).json(err));
+
+
+
   },
-  // .catch(err => res.status(422).json(err))
-
-
-  // db.VCard
-  //   .create(req.body)
-  //   .then(dbModel => {
-  //     // set content-type and disposition including desired filename
-  //     res.set('Content-Type', 'text/vcard; name="businesscard.vcf"');
-  //     res.set('Content-Disposition', 'inline; filename="businesscard.vcf"');
-
-  //     // send the response
-  //     res.send(vCard.getFormattedString());
-  //   })
-  //   .catch(err => res.status(422).json(err));
-
-
-
-  // },
 
 };
