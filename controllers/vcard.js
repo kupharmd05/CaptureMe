@@ -18,6 +18,8 @@ module.exports = {
 
 
 
+    
+  
 
   db.VCard
     .create(req.body)
@@ -26,10 +28,17 @@ module.exports = {
       res.set('Content-Type', 'text/vcard; name="businesscard.vcf"');
       res.set('Content-Disposition', 'inline; filename="businesscard.vcf"');
 
-      // send the response
-      res.send(vCard.getFormattedString());
-    })
-    .catch(err => res.status(422).json(err));
+    db.VCard
+      .create(req.body)
+      .then(dbModel => {
+      // set content-type and disposition including desired filename
+        res.set('Content-Type', 'text/vcard; name="businesscard.vcf"');
+        res.set('Content-Disposition', 'inline; filename="businesscard.vcf"');
+
+        // send the response
+        res.send(vCard.getFormattedString());
+      })
+      .catch(err => res.status(422).json(err));
 
 
 
