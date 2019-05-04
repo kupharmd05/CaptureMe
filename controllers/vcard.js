@@ -2,8 +2,9 @@ const vCardJS = require('vcards-js');
 const db = require('../models');
 
 module.exports = {
-  create (req, res) {
+  create: (req, res) => {
     const dataThatIRequested = req.body.data;
+    console.log(dataThatIRequested);
     const splitFirstWord = dataThatIRequested[0].split(' ');
 
     const vCard = vCardJS();
@@ -20,20 +21,31 @@ module.exports = {
     // //get as formatted string
     // console.log(vCard.getFormattedString());
     //     },
-    db.VCard
-      .create(req.body)
-      .then(dbModel => {
-        // set content-type and disposition including desired filename
-        res.set('Content-Type', 'text/vcard; name="businesscard.vcf"');
-        res.set('Content-Disposition', 'inline; filename="businesscard.vcf"');
-
-        // send the response
-        res.send(vCard.getFormattedString());
-      })
-      .catch(err => res.status(422).json(err));
 
 
+    res.set('Content-Type', 'text/vcard; name="businesscard.vcf"');
+    res.set('Content-Disposition', 'inline; filename="businesscard.vcf"');
 
+    // send the response
+    res.send(vCard.getFormattedString());
   },
+  // .catch(err => res.status(422).json(err))
+
+
+  // db.VCard
+  //   .create(req.body)
+  //   .then(dbModel => {
+  //     // set content-type and disposition including desired filename
+  //     res.set('Content-Type', 'text/vcard; name="businesscard.vcf"');
+  //     res.set('Content-Disposition', 'inline; filename="businesscard.vcf"');
+
+  //     // send the response
+  //     res.send(vCard.getFormattedString());
+  //   })
+  //   .catch(err => res.status(422).json(err));
+
+
+
+  // },
 
 };
