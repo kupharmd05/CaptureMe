@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '@okta/okta-react';
-import logo from './capturemelogo2.png';
+import logo from './capturemefinal.png';
 import "./Home.css";
 // import Camera from "../camera/camera"
 import Navbar from '../layout/Navbar';
