@@ -10,6 +10,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-session": "^1.16.1",
+    "if-env": "^1.0.4",
     "jslib-html5-camera-photo": "^3.0.2-beta.0",
     "mongoose": "^5.5.2",
     "passport": "^0.4.0",
@@ -28,7 +29,6 @@
     "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
-    "if-env": "^1.0.4",
     "nodemon": "^1.19.0"
   },
   "scripts": {
