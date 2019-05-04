@@ -4,7 +4,7 @@ import sendImage from "../../utils/googleAPI";
 import CameraPhoto, { FACING_MODES } from 'jslib-html5-camera-photo';
 import Navbar from "../layout/Navbar";
 import "./camera.css";
-import Navbar from "../layout/Navbar"
+
 import { Link } from 'react-router-dom';
 
 
@@ -157,7 +157,7 @@ export class Camera extends Component {
 
       </React.Fragment>
 
-        </div>
+        
 
         
     )
