@@ -14,11 +14,28 @@ module.exports = {
     vCard.title = dataThatIRequested[2];
     vCard.email = dataThatIRequested[3];
 
-    //set content-type and disposition including desired filename
-    res.set('Content-Type', 'text/vcard; name="enesser.vcf"');
-    res.set('Content-Disposition', 'inline; filename="enesser.vcf"');
+    const dbVcard = {
+      firstName: vCard.firstName,
+      lastName: vCard.lastName,
+      workPhone: vCard.workPhone,
+      title: vCard.title,
+      email: vCard.email,
+    };
 
-    //send the response
-    res.send(vCard.getFormattedString());
+    db.VCard
+      .create(dbVcard)
+      .then((dbModel) => {
+        // set content-type and disposition including desired filename
+        res.set('Content-Type', 'text/vcard; name="businesscard.vcf"');
+        res.set('Content-Disposition', 'inline; filename="businesscard.vcf"');
+
+        console.log(vCard.getFormattedString());
+        // send the response
+        res.send(vCard.getFormattedString());
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(422).json(err);
+      });
   },
 };

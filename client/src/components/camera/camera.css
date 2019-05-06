@@ -7,7 +7,7 @@
     position: relative;
     z-index: 1;
     background: #FFFFFF;
-    max-width: 750px;
+    max-width: 400px;
     margin: 0 auto 0;
     padding: 45px;
     text-align: center;
@@ -58,6 +58,14 @@
     text-align: center;
     color: #FFFFFF;
   }
+
+  a {
+    color: white;
+  }
+
+  .font-hover:hover {
+    color: #29DD00;
+}
   
   
   /* #add-button{
