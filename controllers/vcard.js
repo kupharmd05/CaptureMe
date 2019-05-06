@@ -4,7 +4,6 @@ const db = require('../models');
 module.exports = {
   create: (req, res) => {
     const dataThatIRequested = req.body.data;
-    console.log(dataThatIRequested);
     const splitFirstWord = dataThatIRequested[0].split(' ');
 
     const vCard = vCardJS();
@@ -15,33 +14,11 @@ module.exports = {
     vCard.title = dataThatIRequested[2];
     vCard.email = dataThatIRequested[3];
 
+    //set content-type and disposition including desired filename
+    res.set('Content-Type', 'text/vcard; name="enesser.vcf"');
+    res.set('Content-Disposition', 'inline; filename="enesser.vcf"');
 
-
-
-    
-  
-
-  db.VCard
-    .create(req.body)
-    .then(dbModel => {
-      // set content-type and disposition including desired filename
-      res.set('Content-Type', 'text/vcard; name="businesscard.vcf"');
-      res.set('Content-Disposition', 'inline; filename="businesscard.vcf"');
-
-    db.VCard
-      .create(req.body)
-      .then(dbModel => {
-      // set content-type and disposition including desired filename
-        res.set('Content-Type', 'text/vcard; name="businesscard.vcf"');
-        res.set('Content-Disposition', 'inline; filename="businesscard.vcf"');
-
-        // send the response
-        res.send(vCard.getFormattedString());
-      })
-      .catch(err => res.status(422).json(err));
-
-
-
+    //send the response
+    res.send(vCard.getFormattedString());
   },
-
 };
