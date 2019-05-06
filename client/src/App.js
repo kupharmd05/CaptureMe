@@ -23,17 +23,12 @@ class App extends Component {
           redirect_uri={window.location.origin + '/implicit/callback'}
           onAuthRequired={onAuthRequired} >
           <div>
-
-
             <div className="">
               <Route exact path="/" component={Home} />
               <SecureRoute path="/camera" component={Camera} />
               <Route path='/login' render={() => <Login baseUrl='https://dev-680655.okta.com' />} />
               <Route path='/implicit/callback' component={ImplicitCallback} />
-
             </div>
-
-
           </div>
         </Security>
       </Router>

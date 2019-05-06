@@ -4,7 +4,6 @@ const db = require('../models');
 module.exports = {
   create: (req, res) => {
     const dataThatIRequested = req.body.data;
-    console.log(dataThatIRequested);
     const splitFirstWord = dataThatIRequested[0].split(' ');
 
     const vCard = vCardJS();
