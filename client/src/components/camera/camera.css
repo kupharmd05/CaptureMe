@@ -7,7 +7,7 @@
     position: relative;
     z-index: 1;
     background: #FFFFFF;
-    max-width: 400px;
+    max-width: 730px;
     margin: 0 auto 0;
     padding: 45px;
     text-align: center;
@@ -66,7 +66,7 @@
   .font-hover:hover {
     color: #29DD00;
 }
-  
+
   
   /* #add-button{
     align-items: center;
@@ -107,4 +107,6 @@
     border-bottom-right-radius: 20px;
   } */
   
-  
+  #cameraImg {
+    margin-left: -5px;
+  }

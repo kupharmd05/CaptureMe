@@ -40,22 +40,20 @@ stopCamera {
 .label {
   list-style-type: none;
   color: rgb(88, 85, 85);
-  background-color: #f2f2f2;
   border: 1px solid #333;
-  margin: 0 10px 15px 10px;
-  width: 50%;
-  height: 39px;
-  text-align: center;
+  margin: 0 5px 55px 10px;
+  padding: 10px 15px;
+  text-align: left;
   border-left: none;
   border-right: none;
   border-top: none;
-  box-shadow: -2px -1px 3px #444;
+  font-weight: 600;
+  text-transform: capitalize;
 }
 
 
 ul {
   padding: 0;
-  margin-left: -40px
 }
 
 li {
