@@ -122,19 +122,19 @@ export class VerifyInfo extends Component {
         <div className="form">
           <form className="login-form">
             <div className="row">
-              <div className="container col">
-                <ul>
+              <div>
+                <ul className="labels">
                   {this.state.labels.map((label, index) => (
                     <li key={index} className="label">{label}</li>
                   ))}
                 </ul>
               </div>
 
-              <div className="container col">
+              <div className="row">
                 <ul className="print" ref={this.dragulaDecorator}>
                   {this.state.splitData.map((item, index) => (
 
-                    <li>
+                    <li className="draggedItems">
                       <input key={index} name={index} value={item}
                              onChange={this.handleInputChange} />
                       <span className="drag" aria-disabled="true">::</span>
@@ -155,6 +155,9 @@ export class VerifyInfo extends Component {
               </div>
             </div>
             <button onClick={this.handleCreateContact}>create contact</button>
+            {this.state.vcardUrl &&
+              <button><a href={this.state.vcardUrl} download="contact.vcf">Download vCard</a></button>
+            }
             <br /><br />
             <button type="submit" formAction="/camera">retake</button>
           </form>
@@ -162,9 +165,7 @@ export class VerifyInfo extends Component {
           <form>
             <button type="submit" formAction="/">cancel</button>
           </form>
-          {this.state.vcardUrl &&
-          <a href={this.state.vcardUrl} download="contact.vcf">Download vCard</a>
-          }
+          
         </div>
       </div>
     );

@@ -16,7 +16,8 @@ export class Camera extends Component {
     this.state = {
       dataUri: '',
       data: {},
-      redirect: false
+      redirect: false,
+      wasPhotoTaken: false,
     };
 
 
@@ -50,7 +51,14 @@ export class Camera extends Component {
       });
   }
 
+
+
   takePhoto() {
+
+    this.setState({
+      wasPhotoTaken: true,
+    });
+
     const config = {
       sizeFactor: 1
     };
@@ -83,6 +91,7 @@ export class Camera extends Component {
         ]
       }
       return JSON.stringify(data);
+
     }
 
 
@@ -140,16 +149,20 @@ export class Camera extends Component {
           }}>Close Camera</button>
           {/* </a> */}
           <br /><br />
+          {!this.state.wasPhotoTaken && 
           <video className="camera"
             ref={this.videoRef}
             autoPlay={true}
           />
+          }
           <br /><br />
+          {this.state.wasPhotoTaken &&
           <img
+            id="cameraImg"
             alt="imgCamera"
             src={this.state.dataUri}
           />
-
+          }
           <div className="container col" >
             <ul className="print" ref={this.dragulaDecorator}>
             </ul>

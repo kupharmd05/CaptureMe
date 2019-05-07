@@ -3,26 +3,24 @@ ul.print > li > input {
     border-bottom: 1px solid #333;
     padding: 10px;
     font-size: 12px;
-    width: 60%;
-
+    margin-left: -35px;
+    margin-top: -348px;
+    width: 220px;
 }
 
 ul.print > li > input:hover {
     cursor: all-scroll;
 }
 
-li {
-    margin-left: -108px;
-}
-
 button.delete.btn.btn-danger {
-    width: 40px;
-    height: 38px;
+    width: 30px;
+    height: 39px;
     padding: 10px 0 10px 0;
     margin-bottom: 10px;
+    margin-top: -5px;
     margin-left: 1px;
     position: absolute;
-    right: -7px;
+    right: 35px;
 }
 
 .input-group-append {
@@ -34,7 +32,7 @@ button.delete.btn.btn-danger {
 .input-group > input {
     border-bottom: 0.5px solid #333 !important;
     height: 39px;
-    width: 92% !important;
+    width: 50% !important;
     margin-left: -33px !important;
 }
 
@@ -42,8 +40,19 @@ span.drag {
     position: absolute;
     border: 1px solid #333;
     width: 10px;
-    margin-left: 1px;
+    margin-top: -5px;
     background-color: #f2f2f2;
     padding: 5px 20px 0 11px;
-    height: 38px;
+    height: 39px;
+}
+
+.draggedItems {
+    margin-bottom: 50px;
+    margin-top: 55px;
+    margin-left: -60px;
+}
+
+
+.form {
+    max-width: 730px;
 }
