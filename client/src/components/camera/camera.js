@@ -150,7 +150,7 @@ export class Camera extends Component {
         {this.state.wasGoogleDataReceived &&
           <button onClick={() => {
             this.stopCamera();
-          }}>Close Camera</button>
+          }}>Verify Card</button>
         }
           <br /><br />
           {!this.state.wasPhotoTaken && 
