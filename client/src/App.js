@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CreateLogin from "./components/login/create-login"
 import './App.css';
 import Camera from "./components/camera/camera";
 import { BrowserRouter as Router, Route } from 'react-router-dom';

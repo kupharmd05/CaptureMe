@@ -33,27 +33,6 @@ export class VerifyInfo extends Component {
         this.setState({
           updatedArray: updatedArray,
         }, () => console.log(this.state.updatedArray));
-
-
-        // console.log();
-        // const keyOfItemDragged = itemThatWasDragged.value;
-        // const valueOfItemDragged = this.state.splitData[keyOfItemDragged];
-        // console.log(keyOfItemDragged);
-        // console.log(valueOfItemDragged);
-
-        // const updatedArray = [...this.state.splitData].filter((data, index) => index !== keyOfItemDragged);
-        // console.log(updatedArray);
-
-        // if (itemBelow) {
-        //   const newPosition = itemBelow.children[0].name - 1;
-        //   console.log('updated array', updatedArray);
-        //   // this.setState({ splitData: updatedArray });
-
-        // }
-        // // const positionOfItemBelow = this.state.splitData.findIndex(val => val === newPosition)
-        // const position = positionOfItemBelow - 1;
-        // console.log(newPosition, positionOfItemBelow, position, someOtherThing, parent);
-        // const listWithoutItem = this.st
       });
     }
   };
@@ -156,7 +135,7 @@ export class VerifyInfo extends Component {
             </div>
             <button onClick={this.handleCreateContact}>create contact</button>
             {this.state.vcardUrl &&
-              <button><a href={this.state.vcardUrl} download="contact.vcf">Download vCard</a></button>
+              <button className="vCard"><a href={this.state.vcardUrl} download="contact.vcf">Download vCard</a></button>
             }
             <br /><br />
             <button type="submit" formAction="/camera">retake</button>
