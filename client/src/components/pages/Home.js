@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { withAuth } from '@okta/okta-react';
 import logo from '../pages/capturemefinal.png';
 import "./Home.css";
-// import Camera from "../camera/camera"
 import Navbar from '../layout/Navbar';
 
 
@@ -49,7 +48,6 @@ export default withAuth(class Home extends Component {
             <Link to={'/camera'}><button>Camera</button></Link>
           </div>
         </div>
-
       </React.Fragment>
 
     ) : (
