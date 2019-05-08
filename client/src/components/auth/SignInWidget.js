@@ -5,7 +5,7 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 import '@okta/okta-signin-widget/dist/css/okta-theme.css';
 import logo from "../pages/capturemefinal.png";
 
-// https://dev-680655.okta.com/oauth2/v1/authorize?idp=0oaij9x751cV7zUvV356&client_id=0oaiiphavOO8bpeh2356&response_type=code&response_mode=fragment&scope=openid&redirect_uri=https://dev-680655.okta.com/oauth2/v1/authorize/callback&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601&nonce=foobar
+
 
 class SignInWidget extends Component {
   componentDidMount() {
@@ -28,7 +28,8 @@ class SignInWidget extends Component {
       },
       idpDisplay: 'PRIMARY',
       idps: [
-        { type: 'GOOGLE', id: '0oaij9x751cV7zUvV356' }
+        { type: 'GOOGLE', id: '0oaij9x751cV7zUvV356' },
+        // {type: 'FACEBOOK', id:'554609168397933' }
       ]
 
     });

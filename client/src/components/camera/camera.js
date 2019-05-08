@@ -18,6 +18,7 @@ export class Camera extends Component {
       data: {},
       redirect: false,
       wasPhotoTaken: false,
+      wasGoogleDataReceived: false
     };
 
 
@@ -72,6 +73,9 @@ export class Camera extends Component {
     var key = "AIzaSyBO1-gzEojkiM6BU5uDjeDT4ndpvrFFCtA";
     sendImage(imageReady, key).then((data) => {
       this.setState({ data })
+      if (this.state.data.length !== 0) {
+        this.setState({ wasGoogleDataReceived: true });
+      }
     });
 
 
@@ -143,11 +147,11 @@ export class Camera extends Component {
           }}>Take photo</button>
           <br /><br />
 
-          {/* <a href="/verify"> */}
+        {this.state.wasGoogleDataReceived &&
           <button onClick={() => {
             this.stopCamera();
           }}>Close Camera</button>
-          {/* </a> */}
+        }
           <br /><br />
           {!this.state.wasPhotoTaken && 
           <video className="camera"

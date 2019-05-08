@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+
 import "./navbar.css";
-import login from '../auth/login';
-import logo from '../pages/capturemefinal.png';
+
 
 
 function Navbar(props) {
