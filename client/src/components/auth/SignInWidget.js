@@ -28,7 +28,7 @@ class SignInWidget extends Component {
       },
       idpDisplay: 'PRIMARY',
       idps: [
-        { type: 'GOOGLE', id: '0oaij9x751cV7zUvV356' },
+        { type: 'GOOGLE', id: '0oaij9x751cV7zUvV356' }
         // {type: 'FACEBOOK', id:'554609168397933' }
       ]
 
