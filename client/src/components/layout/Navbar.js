@@ -1,5 +1,5 @@
 import React from 'react';
-
+import logo from "../pages/capturemelogo.png";
 import "./navbar.css";
 
 
@@ -9,13 +9,8 @@ function Navbar(props) {
 
   return (
     <nav className="mainNav">
-      <div>
-        <a className="navbar-brand font-hover" href="/">
-          <strong>CaptureMe</strong>
-        </a>
-        <span className="navbar-brand">|</span>
-        <span className="navbar-brand" {...props}>{props.children}</span>
-      </div>
+      <img id="navImg" src={logo} alt="navigation"/>
+      <span className="" {...props}>{props.children}</span>
     </nav>
 
   )

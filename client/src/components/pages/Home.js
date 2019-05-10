@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '@okta/okta-react';
-import logo from '../pages/capturemefinal.png';
+import logo from './capturemelogo.png';
 import "./Home.css";
 import Navbar from '../layout/Navbar';
 
@@ -34,41 +34,48 @@ export default withAuth(class Home extends Component {
   }
 
   render() {
-    if (this.state.authenticated === null) return null;
 
+    if (this.state.authenticated === null) return null;
     const mainContent = this.state.authenticated ? (
+    <div>
       <React.Fragment>
         <Navbar onClick={this.logout}>
           <Link to={'/'}><strong className="font-hover">Logout</strong></Link>
-
         </Navbar>
+      </React.Fragment>
+
+      <React.Fragment>
         <div className="container">
           <div className="jumbotron">
-            <img src={logo} alt="Logo" />
+            <p><img id="logoImg" src={logo} alt="logo"/></p>
             <Link to={'/camera'}><button>Camera</button></Link>
           </div>
         </div>
       </React.Fragment>
+    </div>
 
     ) : (
-        <div>
+      <React.Fragment>
+        <div id="body-two">
           <Navbar onClick={this.login}>
-            <Link to={'/'}><strong className="font-hover">Login</strong></Link>
+              <Link to={'/'}><strong className="font-hover">Login</strong></Link>
           </Navbar>
-          <div className="container">
-            <div className="jumbotron" style={{ "background": "transparent" }}>
-              <img src={logo} alt="Logo" />
-            </div>
+          <div className="pitch fadeInDown animate">
+            <h1>CaptureME</h1>
+            <p>Transform business cards into mobile contacts</p>
           </div>
         </div>
+        <footer>
+          <p>&copy; Copyright 2019 | KU Bootcamp</p>
+        </footer>
+      </React.Fragment>
       );
 
 
     return (
-      <div>
-        {mainContent}
-      </div>
-
+        <div>
+          {mainContent}
+        </div>
     );
   }
 });
