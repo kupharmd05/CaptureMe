@@ -1,6 +1,14 @@
+body {
+  background-image: radial-gradient(circle, rgb(2, 39, 226) 0%, rgb(54, 161, 161) 100%) !important;
+  background-blend-mode: screen;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+}
+
 .capture-page {
     width: 360px;
-    padding: 8% 0 0;
+    /* padding: 8% 0 0; */
     margin: auto;
   }
   .form {
@@ -8,7 +16,7 @@
     z-index: 1;
     background: #FFFFFF;
     max-width: 730px;
-    margin: 0 auto 0;
+    margin: 35px auto 40px;
     padding: 45px;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -47,17 +55,7 @@
     color: rgb(58, 35, 190);
     text-decoration: none;
   }
-  
-  body {
-    background-image: linear-gradient(to bottom, #04528E, 60%, #29DD00);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #FFFFFF;
-  }
+
 
   a {
     color: white;
@@ -72,46 +70,56 @@
   margin-top: 15px;
 }
 
-  
-  /* #add-button{
-    align-items: center;
-    display: flex;
-    position: absolute;
-    top: 75%;
-    left: 50%;
-    margin-left: -50px;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-  }
-  
-  #upload-button {
-    align-items: center;
-    display: flex;
-    position: absolute;
-    top: 75%;
-    left: 50%;
-    margin-left: -50px;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-  }
-  
-  #capture-button {
-    align-items: center;
-    display: flex;
-    position: absolute;
-    top: 65%;
-    left: 50%;
-    margin-left: -50px;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-  } */
-  
   #cameraImg {
     margin-left: -5px;
+  }
+
+  h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 10px
+  }
+
+  @media screen and (max-width: 425px) {
+    .camera {
+      width: 330px;
+      padding: 0px;
+      margin-left: -10px;
+    }
+
+    .form {
+      width: 400px;
+    }
+
+    #cameraImg {
+      width: 330px;
+    }
+  }
+
+  @media screen and (max-width: 375px) {
+    .camera {
+      width: 300px;
+      padding: 0px;
+      margin-left: -10px;
+    }
+
+    #cameraImg {
+      width: 300px;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    .camera {
+      width: 250px;
+      padding: 0px;
+      margin-left: -10px;
+    }
+
+    .form {
+      width: 320px;
+    }
+
+    #cameraImg {
+      width: 250px;
+    }
   }

@@ -1,12 +1,28 @@
 .mainNav {
     background-color: transparent;
-    text-align: center;
+    text-align: right;
 }
 
-.navbar-brand {
-    color: #ffffff;
+span {
+    padding: 0 40px;
 }
-
 .font-hover:hover {
     color: #29DD00;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+#navImg {
+    width: 350px;
+    float: left;
+    margin-top: -106px;
+}
+
+@media screen and (max-width: 425px) {
+    #navImg {
+        width: 185px;
+        margin-top: -48px;
+    }
 }

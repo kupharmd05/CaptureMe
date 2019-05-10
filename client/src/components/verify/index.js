@@ -115,7 +115,7 @@ export class VerifyInfo extends Component {
 
                     <li className="draggedItems">
                       <input key={index} name={index} value={item}
-                             onChange={this.handleInputChange} />
+                        onChange={this.handleInputChange} />
                       <span className="drag" aria-disabled="true">::</span>
                       <button className="delete btn btn-danger" onClick={(event) => {
                         event.preventDefault();

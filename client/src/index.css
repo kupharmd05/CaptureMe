@@ -1,6 +1,6 @@
 .capture-page {
   width: 360px;
-  padding: 8% 0 0;
+  /* padding: 8% 0 0; */
   margin: auto;
 }
 .form {
@@ -48,17 +48,6 @@
   text-decoration: none;
 }
 
-body {
-  background-image: linear-gradient(to bottom, #04528E, 60%, #29DD00);
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 125vh;
-}
-
-h1 {
-  text-align: center;
-  color: #FFFFFF;
-}
 
 button {
   /* box-shadow: 5px 5px black; */
@@ -101,42 +90,6 @@ button {
   margin: auto;
 }
 
-/* #add-button{
-  align-items: center;
-  display: flex;
-  position: absolute;
-  top: 75%;
-  left: 50%;
-  margin-left: -50px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+#__lpform_okta-signin-password_icon, #__lpform_okta-signin-username_icon{
+  display: none;
 }
-
-#upload-button {
-  align-items: center;
-  display: flex;
-  position: absolute;
-  top: 75%;
-  left: 50%;
-  margin-left: -50px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-
-#capture-button {
-  align-items: center;
-  display: flex;
-  position: absolute;
-  top: 65%;
-  left: 50%;
-  margin-left: -50px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-} */
-

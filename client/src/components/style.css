@@ -1,3 +1,13 @@
+body {
+  background-image: radial-gradient(circle, rgb(2, 39, 226) 0%, rgb(54, 161, 161) 100%);
+  background-blend-mode: screen;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+
 .login-page {
     width: 360px;
     padding: 8% 0 0;
@@ -48,22 +58,6 @@
   .form .message a {
     color: rgb(58, 35, 190);
     text-decoration: none;
-  }
-
-  body {
-    background-image: linear-gradient(to bottom, #04528E, 60%, #29DD00);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 125vh;
-  }
-
-  h1 {
-    text-align: center;
-    color: #FFFFFF;
-  }
-
-  .login-page {
-    height: 125vh;
   }
 
   .button-link {
