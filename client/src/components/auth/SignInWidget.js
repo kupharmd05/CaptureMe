@@ -15,8 +15,8 @@ class SignInWidget extends Component {
       baseUrl: this.props.baseUrl,
       clientId: '0oaiiphavOO8bpeh2356',
       logo: logo,
-      redirectUri: "http://localhost:3000/implicit/callback",
-      // redirectUri: "https://mysterious-sierra-84651.herokuapp.com/implicit/callback",
+//       redirectUri: "http://localhost:3000/implicit/callback",
+      redirectUri: "https://mysterious-sierra-84651.herokuapp.com/implicit/callback",
       authParams: {
         scopes: [
           'openid',
