@@ -20,7 +20,7 @@ We found that business individuals that go to meet up or events in thier industr
 
 ![alt text](client/src/components/pages/createcontact.png)
 
-![alt text](/src/components/pages/download-vcard.png)
+![alt text](client/src/components/pages/download-vcard.png)
 
 ## Tools Used
 CaptureMe was built on React.js and utlized many frameworks/libraries/APIs to make this possible.  We used the Google OCR API to capture the text of the business card, Mongo to store user information, Okta for user authentication, Express for routing the users to different paths
