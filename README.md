@@ -8,17 +8,17 @@ CaptureMe is an app that allows a user to take an image of a business card and s
 ## Problem
 We found that business individuals that go to meet up or events in thier industry, gather many business cards and have to hold on to them for long durations.  We figured that building something that allows them to store the business card in their phone made more logical sense.  This fixes that issue. :)
 
-![alt text](/src/components/pages/signin.png)
+![alt text](client/src/components/pages/signin.png)
 
-![alt text](/src/components/pages/camerapage.png)
+![alt text](client/src/components/pages/camerapage.png)
 
-![alt text](/src/components/pages/cameraoptions.png)
+![alt text](client/src/components/pages/cameraoptions.png)
 
-![alt text](/src/components/pages/capturepic.png)
+![alt text](client/src/components/pages/capturepic.png)
 
-![alt text](/src/components/pages/verifyinfo.png)
+![alt text](client/src/components/pages/verifyinfo.png)
 
-![alt text](/src/components/pages/createcontact.png)
+![alt text](client/src/components/pages/createcontact.png)
 
 ![alt text](/src/components/pages/download-vcard.png)
 
