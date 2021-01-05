@@ -6,7 +6,7 @@
   "dependencies": {
     "@google-cloud/vision": "^0.25.0",
     "@okta/okta-sdk-nodejs": "^2.0.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-session": "^1.16.1",
