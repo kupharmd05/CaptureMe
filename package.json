@@ -12,7 +12,7 @@
     "express-session": "^1.16.1",
     "if-env": "^1.0.4",
     "jslib-html5-camera-photo": "^3.0.2-beta.0",
-    "mongoose": "^5.5.2",
+    "mongoose": "^5.7.5",
     "passport": "^0.4.0",
     "passport-auth0": "^1.1.0",
     "react": "^16.8.6",
